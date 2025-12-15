@@ -19,7 +19,6 @@ html {
 body {
     position: relative;
     background: var(--background);
-    height: 2000px;
 }
 
 /* scrollbar */
@@ -53,8 +52,21 @@ body {
     src: url(fonts/panchang/Panchang-Extrabold.otf);
 }
 
+@font-face {
+    font-family: "termina-regular";
+    src: url(fonts/termina/TerminaTest-Regular.otf);
+}
+
 h1 {
     font-size: 128px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
 }
 
 /* text styles */
@@ -65,19 +77,19 @@ h1 {
 
 .bg-img {
     position: fixed;
+    top: 0;
     width: 100%;
     height: 100vh;
-    z-index: -1;
-    opacity: 0.2;
+    z-index: -2;
+    opacity: 0.02;
     background-image: url(imgs/potential-bg.svg);
     background-size: cover;
     background-position: center;
 }
 
 .hero {
-    position: sticky;
-    top: 0;
-    z-index: -1;
+    position: relative;
+    background: var(--background);
     width: 100%;
     height: 100vh;
     padding-top: 60px;
@@ -119,6 +131,52 @@ model-viewer::part(default-progress-bar) {
     display: inline-block;
 }
 
+.scroll-cont {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    right: 100px;
+    display: flex;
+    align-items: start;
+}
+
+.scroll-cont p {
+    font-family: "panchang-extrabold";
+    color: var(--white);
+    transform: rotate(90deg);
+    line-height: 74px;
+    width: 100%;
+    font-weight: 800;
+    display: flex;
+    align-self: start;
+}
+
+.scroll-indicator {
+    width: 2px;
+    height: 170px;
+    border-radius: 2px;
+}
+
+.scroll-indicator span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    transform-origin: top;
+    animation: scroll 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
 /* landing screen */
 
 /* header */
@@ -135,15 +193,44 @@ header {
     border-bottom: 1px solid var(--white);
 }
 
-header img {
+.header-logo {
     width: 48px;
     height: 48px;
+}
+
+.burger-menu {
+    height: 20px;
+    width: 44px;
 }
 
 /* header */
 
 
 /* hero section */
+
+.main-hero {
+    background-image: url(imgs/koenigsegg-logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    height: calc(100vh - 100px);
+}
+
+.main-hero h6 {
+    color: var(--white);
+    font-family: "termina-regular";
+    width: 477px;
+}
+
+.hero-model {
+    width: 100%;
+    height: calc(100vh - 100px);
+    flex-grow: 1;
+    display: block;
+}
 
 /* hero section */
 
