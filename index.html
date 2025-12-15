@@ -10,6 +10,17 @@
     <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
 </head>
 <body>
+    
+    <div class="loading">
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <header>
+        <img class="header-logo" src="icons/favicon-dark.svg" alt="Asphalt logo">
+        <img class="burger-menu" src="icons/burger-menu.svg" alt="Menu icon">
+    </header>
     <div class="bg-img"></div>
     <section class="hero hero-bg-img">
         <div class="headline-wrapper">
@@ -24,14 +35,10 @@
         <model-viewer id="heroCar" class="hero-model" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="20 20 20" reveal="manual" loading="eager" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
     </section>
     <div class="bg-img"></div>
-    <header>
-        <img class="header-logo" src="icons/favicon-dark.svg" alt="Asphalt logo">
-        <img class="burger-menu" src="icons/burger-menu.svg" alt="Menu icon">
-    </header>
     <div class="bg-img2"></div>
     <section class="main-hero">
         <h6>The 2015 Koenigsegg Regera delivers instant electric torque and seamless hybrid power, redefining performance with its revolutionary Direct Drive system.</h6>
-        <model-viewer class="hero-model" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="20 20 20" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+        <model-viewer class="hero-model" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="20 20 20" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m"></model-viewer>
     </section>
 
 

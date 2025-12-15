@@ -1,3 +1,13 @@
+// preloader
+
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").style.display = "none";
+  }, 500);
+});
+
+// preloader
+
 gsap.registerPlugin(SplitText);
 
 const mainHeadline = document.querySelector(".main-headline");
