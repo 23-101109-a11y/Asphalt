@@ -38,21 +38,56 @@ tl.to(group2, {
 const modelViewer = document.querySelector('#heroCar');
 
 modelViewer.addEventListener('load', () => {
-  // 1. Target the material and set to black
   const PAINT = modelViewer.model.getMaterialByName('PAINT');
   if (PAINT) {
-    // [r, g, b, a] normalized 0-1
-    PAINT.pbrMetallicRoughness.setBaseColorFactor([0, 0, 0, 1]); 
+    PAINT.pbrMetallicRoughness.setBaseColorFactor([0.02, 0.02, 0.02, 1]); 
   }
 
-  // 2. Reveal the model now that it's ready
+  const Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material = modelViewer.model.getMaterialByName('Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material');
+  if  (Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material) {
+    Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material.pbrMetallicRoughness.setBaseColorFactor([0.05, 0.05, 0.05, 1]); 
+  }
+
+
   modelViewer.dismissPoster();
-  
-  // 3. Fade in the component
-  modelViewer.style.opacity = 1;
+
 });
 
-gsap.from("#heroCar", {
+
+const setupInteractiveMovement = () => {
+    const container = modelViewer; 
+    const box = modelViewer;
+    const movementRange = 15;
+
+    const setBoxX = gsap.quickTo(box, "x", { duration: 0.5, ease: "power2.out" });
+    const setBoxY = gsap.quickTo(box, "y", { duration: 0.5, ease: "power2.out" });
+
+    function handleMouseMove(e) {
+        const bounds = container.getBoundingClientRect();
+        const mouseX = e.clientX - bounds.left;
+        const mouseY = e.clientY - bounds.top;
+
+        const newX = gsap.utils.mapRange(0, bounds.width, -movementRange, movementRange, mouseX);
+        const newY = gsap.utils.mapRange(0, bounds.height, -movementRange, movementRange, mouseY);
+
+        setBoxX(newX);
+        setBoxY(newY);
+    }
+
+    function handleMouseLeave() {
+        setBoxX(0);
+        setBoxY(0);
+    }
+
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
+};
+
+const entranceTimeline = gsap.timeline({
+    onComplete: setupInteractiveMovement 
+});
+
+entranceTimeline.from("#heroCar", {
   x: "-120%",
   opacity: 0,
   filter: "blur(10px)",
@@ -61,13 +96,7 @@ gsap.from("#heroCar", {
   ease: "power3.out"
 });
 
-gsap.to("#heroCar", {
-  x: 0,
-  opacity: 1,
-  duration: 1.6,
-  delay: 2,
-  ease: "power3.out"
-});
+// landing screen car model
 
 
 

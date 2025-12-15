@@ -1,5 +1,5 @@
 :root {
-    --background: #090E1E;
+    --background: linear-gradient(180deg, #090E1E 0%, #190926 100%);
 }
 
 * {
@@ -11,6 +11,7 @@
 body {
     background: var(--background);
     color: white;
+    height: 2000px;
 }
 
 /* text styles */
@@ -26,13 +27,32 @@ h1 {
 
 /* text styles */
 
+.bg-img {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.2;
+    background-image: url(imgs/potential-bg.svg);
+    background-size: cover;
+    background-position: center;
+}
 
 .hero {
-    padding-top: 100px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 60px;
     display: flex;
-    align-items: center;
+    align-items: center;    
     flex-direction: column;
     overflow: visible;
+}
+
+.hero-bg-img {
+    background-image: url(imgs/hero-bg-img.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .hero h1 {
@@ -42,11 +62,10 @@ h1 {
 }
 
 .hero-model {
-    margin-top: -300px;
     width: 100%;
-  height: 1000px;
-  display: block;
-
+    height: calc(100vh - 100px);
+    flex-grow: 1;
+    display: block;
 }
 
 model-viewer::part(default-progress-bar) {
