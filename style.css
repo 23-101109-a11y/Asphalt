@@ -1,5 +1,9 @@
 :root {
     --background: linear-gradient(180deg, #090E1E 0%, #190926 100%);
+    --dark_purple: #2f1743;
+    --lavender: rgb(144, 124, 178);
+    --dark_blue: #090E1E;
+    --white: #FFFFFF;
 }
 
 * {
@@ -8,11 +12,38 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background: var(--background);
-    color: white;
     height: 2000px;
 }
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--lavender);
+    border-radius: 10px;
+    transition: all 200ms;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark_purple);
+}
+
+/* scrollbar */
 
 /* text styles */
 
@@ -45,7 +76,7 @@ h1 {
     display: flex;
     align-items: center;    
     flex-direction: column;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .hero-bg-img {
@@ -59,6 +90,7 @@ h1 {
     font-family: "panchang-extrabold";
     letter-spacing: 30px;
     overflow: visible;
+    color: white;
 }
 
 .hero-model {
