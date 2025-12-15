@@ -3,7 +3,7 @@
     --dark_purple: #2f1743;
     --lavender: rgb(144, 124, 178);
     --dark_blue: #090E1E;
-    --white: #FFFFFF;
+    --white: #F0EEFF;
 }
 
 * {
@@ -17,6 +17,7 @@ html {
 }
 
 body {
+    position: relative;
     background: var(--background);
     height: 2000px;
 }
@@ -58,6 +59,10 @@ h1 {
 
 /* text styles */
 
+/* home page */
+
+/* landing screen */
+
 .bg-img {
     position: fixed;
     width: 100%;
@@ -70,6 +75,9 @@ h1 {
 }
 
 .hero {
+    position: sticky;
+    top: 0;
+    z-index: -1;
     width: 100%;
     height: 100vh;
     padding-top: 60px;
@@ -90,7 +98,7 @@ h1 {
     font-family: "panchang-extrabold";
     letter-spacing: 30px;
     overflow: visible;
-    color: white;
+    color: var(--white);
 }
 
 .hero-model {
@@ -110,3 +118,33 @@ model-viewer::part(default-progress-bar) {
     overflow: visible;
     display: inline-block;
 }
+
+/* landing screen */
+
+/* header */
+
+header {
+    position: sticky;
+    top: 0;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: var(--dark_blue);
+    border-bottom: 1px solid var(--white);
+}
+
+header img {
+    width: 48px;
+    height: 48px;
+}
+
+/* header */
+
+
+/* hero section */
+
+/* hero section */
+
+/* home page */
