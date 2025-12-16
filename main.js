@@ -18,7 +18,9 @@ const chars = split.chars;
 const group1 = chars.filter((_, i) => i % 2 === 0);
 const group2 = chars.filter((_, i) => i % 2 !== 0);
 
-const tl = gsap.timeline();
+const tl = gsap.timeline({
+  delay: 0.4,
+});
 
 
 tl.from(group1, {

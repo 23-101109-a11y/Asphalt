@@ -4,6 +4,9 @@
     --lavender: rgb(144, 124, 178);
     --dark_blue: #090E1E;
     --white: #F0EEFF;
+    --button_inset_shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.20) inset;
+    --button_shadow: 0 4px 12px 0 rgba(255, 255, 255, 0.10);
+    --button-bg: linear-gradient(180deg, rgba(186, 165, 222, 0.50) 0%, rgba(55, 61, 75, 0.50) 135.29%);
 }
 
 * {
@@ -20,6 +23,62 @@ body {
     position: relative;
     background: var(--background);
 }
+
+/* common styles */
+
+button {
+    padding: 9px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: var(--button_shadow), var(--button_inset_shadow);
+    background: var(--button-bg);
+    border-radius: 6px;
+    border: 0.25px solid var(--white);
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+button:hover {
+    box-shadow: none;
+    background: none;
+}
+
+button span {
+    font-family: "termina-regular";
+    font-size: 14px;
+    letter-spacing: 2.5px;
+    color: var(--white);
+}
+
+/* text styles */
+
+@font-face {
+    font-family: "panchang-extrabold";
+    src: url(fonts/panchang/Panchang-Extrabold.otf);
+}
+
+@font-face {
+    font-family: "termina-regular";
+    src: url(fonts/termina/TerminaTest-Regular.otf);
+}
+
+h1 {
+    font-size: 128px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+p {
+    font-size: 12px;
+}
+
+/* text styles */
+
+/* common styles */
 
 /* scrollbar */
 
@@ -78,7 +137,7 @@ body {
     inset: 0 100% 0 0;
     border-radius: inherit;
     background: currentColor;
-    animation: loader 500ms;
+    animation: loader 450ms;
 }
 
 @keyframes loader {
@@ -89,31 +148,33 @@ body {
 
 /* preloader */
 
-/* text styles */
 
-@font-face {
-    font-family: "panchang-extrabold";
-    src: url(fonts/panchang/Panchang-Extrabold.otf);
+/* header */
+
+header {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    padding:32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-@font-face {
-    font-family: "termina-regular";
-    src: url(fonts/termina/TerminaTest-Regular.otf);
+.header-logo {
+    width: 48px;
+    height: 48px;
 }
 
-h1 {
-    font-size: 128px;
+.burger-menu {
+    height: 20px;
+    width: 44px;
+    cursor: pointer;
 }
 
-h6 {
-    font-size: 14px;
-}
+/* header */
 
-p {
-    font-size: 12px;
-}
-
-/* text styles */
 
 /* home page */
 
@@ -224,31 +285,6 @@ model-viewer::part(default-progress-bar) {
 
 /* landing screen */
 
-/* header */
-
-header {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    padding:32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.header-logo {
-    width: 48px;
-    height: 48px;
-}
-
-.burger-menu {
-    height: 20px;
-    width: 44px;
-}
-
-/* header */
-
 
 /* hero section */
 
@@ -267,6 +303,12 @@ header {
     color: var(--white);
     font-family: "termina-regular";
     width: 477px;
+}
+
+.main-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .hero-model {
