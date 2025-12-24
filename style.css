@@ -76,6 +76,11 @@ button span {
 }
 
 @font-face {
+    font-family: "termina-semi";
+    src: url(fonts/termina/TerminaTest-Demi.otf);
+}
+
+@font-face {
     font-family: "termina-bold";
     src: url(fonts/termina/TerminaTest-Bold.otf);
 }
@@ -464,6 +469,7 @@ model-viewer::part(default-progress-bar) {
     color: var(--white);
     font-family: "termina-regular";
     font-weight: 400;
+    text-align: center;
 }
 
 .icon-logo {
@@ -562,6 +568,132 @@ model-viewer::part(default-progress-bar) {
 
 /* section 2 */
 
+/* section 3 */
+
+.lineup-sec {
+    padding: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.lineup-sec h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    font-weight: 400;
+    max-width: 750px;
+    text-align: center;
+}
+
+.lineup-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.lineup-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 60px;
+}
+
+.lineup-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(130, 115, 155, 0.5) 0%, rgba(34, 38, 47, 0.5) 135.29%);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25) inset;
+}
+
+.lineup-card button {
+    background: none;
+    border: 0.25px solid var(--white);
+    background: rgba(9, 14, 30, 0.2);
+    width: 100%;
+}
+
+.lineup-card button:hover {
+    box-shadow: none;
+    background: none;
+    border: 0.25px solid var(--white);
+}
+
+.card-car-logo {
+    max-width: 150px;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.brand-watermark {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 1;
+}
+
+.card-specs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-specs h6 {
+    color: var(--white);
+    font-family: "termina-semi";
+}
+
+.card-specs p {
+    color: var(--white);
+    font-family: "termina-regular";
+}
+
+.specs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.spec {
+    display: flex;
+    align-items: flex-end;
+}
+
+.line {
+    height: 100%;
+    width: 1px;
+    background-color: var(--white);
+}
+
+.specs strong {
+    font-size: 22px;
+    display: block;
+}
+
+.specs span {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* section 3 */
 
 
 /* home page */
