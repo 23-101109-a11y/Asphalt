@@ -175,7 +175,7 @@ const cars = [
     name: "Gemera",
     tagline: "Four-seat megacar innovation.",
     brandLogo: "imgs/koenigsegg-logo.png",
-    modelLogo: "imgs/gemera-logo.png",
+    modelLogo: "imgs/regera-logo.png",
     model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
   }
 ];
@@ -252,6 +252,57 @@ carLogo.src = initialCar.modelLogo;
 carTagline.textContent = initialCar.tagline;
 // slider
 
+// section 2
+
+gsap.registerPlugin(ScrollTrigger);
+
+const sec2Text = document.querySelector('.sec2 h3');
+const textContent = sec2Text.textContent;
+const words = textContent.split(' ');
+
+// Use sec2-word instead of word
+sec2Text.innerHTML = words.map(word => `<span class="sec2-word">${word}</span>`).join(' ');
+
+const sec2WordElements = document.querySelectorAll('.sec2-word');
+
+// Hover effect - detect which line a word is on and highlight all words on that line
+sec2WordElements.forEach(word => {
+    word.addEventListener('mouseenter', function() {
+        const currentTop = this.offsetTop;
+        
+        sec2WordElements.forEach(w => {
+            if (Math.abs(w.offsetTop - currentTop) < 5) {
+                w.style.color = '#907CB2';
+            }
+        });
+    });
+
+    word.addEventListener('mouseleave', function() {
+        const currentTop = this.offsetTop;
+        
+        sec2WordElements.forEach(w => {
+            if (Math.abs(w.offsetTop - currentTop) < 5) {
+                w.style.color = '#6F7081';
+            }
+        });
+    });
+});
+
+// Initial fade-in animation
+gsap.from('.sec2-word', {
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    stagger: 0.03,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.sec2',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+    }
+});
+
+// section 2
 
 
 // favicon aligning with user's preferred system theme
