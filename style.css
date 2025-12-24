@@ -54,7 +54,16 @@ button span {
     color: var(--white);
 }
 
+.horizontal-flip {
+    transform: scaleX(-1);
+}
+
 /* text styles */
+
+@font-face {
+    font-family: "panchang-bold";
+    src: url(fonts/panchang/Panchang-Bold.otf);
+}
 
 @font-face {
     font-family: "panchang-extrabold";
@@ -70,12 +79,35 @@ h1 {
     font-size: 128px;
 }
 
+h4 {
+    font-size: 40px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
 h6 {
     font-size: 14px;
 }
 
 p {
     font-size: 12px;
+}
+
+.sec-title {
+    font-family: "panchang-bold";
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 7.2px;
+    background-image: url(imgs/title-bg.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
 }
 
 /* text styles */
@@ -402,5 +434,97 @@ model-viewer::part(default-progress-bar) {
 }
 
 /* hero section */
+
+/* section 1 */
+
+.sec1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    padding: 100px 48px;
+}
+
+.sec1 button {
+    z-index: 1;
+}
+
+.sec1 h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    font-weight: 400;
+}
+
+.icon-logo {
+    max-width: 215px;
+}
+
+.sec1-cont {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* NEW SLIDER */
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 32px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.5;
+}
+
+.slide.active {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.car-logo-bg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sec1-car {
+    width: 400px;
+    height: 400px;
+    flex-grow: 1;
+    display: block;
+    z-index: 1;
+}
+
+.sec1-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+/* section 1 */
+
 
 /* home page */

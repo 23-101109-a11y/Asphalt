@@ -110,8 +110,7 @@ entranceTimeline.from("#heroCar", {
 
 // landing screen car model
 
-
-// ===== MAIN HERO MODEL (color changer) =====
+// main hero (color changer)
 
   function hexToRGBA(hex, alpha = 1) {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
@@ -152,6 +151,106 @@ mainHeroCar.addEventListener('load', () => {
     });
   });
 });
+
+// main hero (color changer)
+
+
+// slider
+const cars = [
+  {
+    name: "Regera",
+    tagline: "Hybrid hypercar with instant torque.",
+    brandLogo: "imgs/koenigsegg-logo.png",
+    modelLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
+  },
+  {
+    name: "Jesko",
+    tagline: "Track-focused extreme performance.",
+    brandLogo: "imgs/koenigsegg-logo.png",
+    modelLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
+  },
+  {
+    name: "Gemera",
+    tagline: "Four-seat megacar innovation.",
+    brandLogo: "imgs/koenigsegg-logo.png",
+    modelLogo: "imgs/gemera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
+  }
+];
+
+const sliderTrack = document.getElementById("sliderTrack");
+const carLogo = document.querySelector(".sec1-content .icon-logo");
+const carTagline = document.querySelector(".sec1-content h5");
+
+let currentIndex = Math.floor(cars.length / 2);
+
+function renderSlider() {
+  sliderTrack.innerHTML = "";
+
+  cars.forEach((car, index) => {
+    const slide = document.createElement("div");
+    slide.className = `slide ${index === currentIndex ? "active" : ""}`;
+
+    slide.innerHTML = `
+      <img class="car-logo-bg" src="${car.brandLogo}" alt="Brand Logo" style="opacity: ${index === currentIndex ? '1' : '0'};">
+      <model-viewer class="sec1-car"
+                    src="${car.model}"
+                    camera-orbit="0deg 90deg"
+                    bounds="tight"
+                    camera-controls
+                    interaction-prompt="none"
+                    disable-tap
+                    disable-zoom>
+      </model-viewer>
+    `;
+
+    slide.onclick = () => {
+      currentIndex = index;
+      updateContent();
+    };
+
+    sliderTrack.appendChild(slide);
+  });
+}
+
+function updateContent() {
+  const car = cars[currentIndex];
+
+  carLogo.src = car.modelLogo;
+  carTagline.textContent = car.tagline;
+
+  const slides = document.querySelectorAll(".slide");
+  slides.forEach((slide, index) => {
+    const brandLogo = slide.querySelector(".car-logo-bg");
+    
+    if (index === currentIndex) {
+      slide.classList.add("active");
+      brandLogo.style.opacity = "1";
+    } else {
+      slide.classList.remove("active");
+      brandLogo.style.opacity = "0";
+    }
+  });
+}
+
+document.getElementById("nextBtn").onclick = () => {
+  currentIndex = (currentIndex + 1) % cars.length;
+  updateContent();
+};
+
+document.getElementById("prevBtn").onclick = () => {
+  currentIndex = (currentIndex - 1 + cars.length) % cars.length;
+  updateContent();
+};
+
+renderSlider();
+
+const initialCar = cars[currentIndex];
+carLogo.src = initialCar.modelLogo;
+carTagline.textContent = initialCar.tagline;
+// slider
 
 
 
