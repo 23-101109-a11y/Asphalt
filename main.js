@@ -260,12 +260,10 @@ const sec2Text = document.querySelector('.sec2 h3');
 const textContent = sec2Text.textContent;
 const words = textContent.split(' ');
 
-// Use sec2-word instead of word
 sec2Text.innerHTML = words.map(word => `<span class="sec2-word">${word}</span>`).join(' ');
 
 const sec2WordElements = document.querySelectorAll('.sec2-word');
 
-// Hover effect - detect which line a word is on and highlight all words on that line
 sec2WordElements.forEach(word => {
     word.addEventListener('mouseenter', function() {
         const currentTop = this.offsetTop;
@@ -288,7 +286,6 @@ sec2WordElements.forEach(word => {
     });
 });
 
-// Initial fade-in animation
 gsap.from('.sec2-word', {
     opacity: 0,
     y: 30,
@@ -303,6 +300,46 @@ gsap.from('.sec2-word', {
 });
 
 // section 2
+
+// section 6
+
+const track = document.querySelector(".partners-carousel");
+
+const marqueeTween = gsap.to(track, {
+  xPercent: -50,
+  repeat: -1,
+  ease: "linear",
+  duration: 30
+});
+
+let lastScrollY = window.scrollY;
+let scrollTimeout;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+  const delta = currentScrollY - lastScrollY;
+
+  if (delta > 0) {
+    gsap.to(marqueeTween, { timeScale: 2, duration: 0.3 });
+  } else if (delta < 0) {
+    gsap.to(marqueeTween, { timeScale: -2, duration: 0.3 });
+  }
+
+  lastScrollY = currentScrollY;
+
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    gsap.to(marqueeTween, { timeScale: 1, duration: 0.6, ease: "power3.out" });
+  }, 120);
+});
+
+track.addEventListener("mouseenter", () => marqueeTween.pause());
+track.addEventListener("mouseleave", () => marqueeTween.play());
+
+
+
+// section 6
+
 
 
 // favicon aligning with user's preferred system theme
