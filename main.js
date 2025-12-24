@@ -1,12 +1,12 @@
-// preloader
+// // preloader
 
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("preloader").style.display = "none";
-  }, 500);
-});
+// window.addEventListener("load", () => {
+//   setTimeout(() => {
+//     document.getElementById("preloader").style.display = "none";
+//   }, 500);
+// });
 
-// preloader
+// // preloader
 
 gsap.registerPlugin(SplitText);
 
@@ -110,6 +110,48 @@ entranceTimeline.from("#heroCar", {
 
 // landing screen car model
 
+
+// ===== MAIN HERO MODEL (color changer) =====
+
+  function hexToRGBA(hex, alpha = 1) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+  return [r, g, b, alpha];
+}
+
+const mainHeroCar = document.querySelector('#mainHeroCar');
+const colorButtons = document.querySelectorAll('.color-changer-colors');
+
+mainHeroCar.addEventListener('load', () => {
+  const PAINT = mainHeroCar.model.getMaterialByName('PAINT');
+
+  colorButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+
+      colorButtons.forEach(b =>
+        b.classList.remove('color-changer-colors-focused')
+      );
+      btn.classList.add('color-changer-colors-focused');
+
+      if (!PAINT) return;
+
+      if (btn.classList.contains('color-changer-purple')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#050107ff'));
+      }
+
+      if (btn.classList.contains('color-changer-blue')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#315c6fff'));
+      }
+
+      if (btn.classList.contains('color-changer-red')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#3F0001'));
+      }
+
+    });
+  });
+});
 
 
 
