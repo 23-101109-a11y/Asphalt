@@ -184,8 +184,8 @@ enterTimeline.from("#heroCarMob", {
   return [r, g, b, alpha];
 }
 
-const mainHeroCar = document.querySelector('#mainHeroCar');
-const colorButtons = document.querySelectorAll('.color-changer-colors');
+let mainHeroCar = document.querySelector('#mainHeroCar');
+let colorButtons = document.querySelectorAll('.color-changer-colors');
 
 mainHeroCar.addEventListener('load', () => {
   const PAINT = mainHeroCar.model.getMaterialByName('PAINT');
@@ -218,8 +218,38 @@ mainHeroCar.addEventListener('load', () => {
 
 // main hero (color changer)
 
+let mainHeroCarMob = document.querySelector('#mainHeroCarMob');
+let colorButtonsMob = document.querySelectorAll('.color-changer-colors');
 
-// slider
+mainHeroCarMob.addEventListener('load', () => {
+  const PAINT = mainHeroCarMob.model.getMaterialByName('PAINT');
+
+  colorButtonsMob.forEach((btn) => {
+    btn.addEventListener('click', () => {
+
+      colorButtonsMob.forEach(b =>
+        b.classList.remove('color-changer-colors-focused')
+      );
+      btn.classList.add('color-changer-colors-focused');
+
+      if (!PAINT) return;
+
+      if (btn.classList.contains('color-changer-purple')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#040106ff'));
+      }
+
+      if (btn.classList.contains('color-changer-blue')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#315c6fff'));
+      }
+
+      if (btn.classList.contains('color-changer-red')) {
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#3F0001'));
+      }
+
+    });
+  });
+});
+
 const cars = [
   {
     name: "Regera",
@@ -314,7 +344,55 @@ renderSlider();
 const initialCar = cars[currentIndex];
 carLogo.src = initialCar.modelLogo;
 carTagline.textContent = initialCar.tagline;
-// slider
+
+
+// MOBILE SLIDER (New - Shows one car at a time)
+const sliderTrackMobile = document.getElementById("sliderTrackMobile");
+let currentIndexMobile = 0;
+
+function renderSliderMobile() {
+  const car = cars[currentIndexMobile];
+  
+  sliderTrackMobile.innerHTML = `
+    <div class="slide-mobile">
+      <img class="car-logo-bg" src="${car.brandLogo}" alt="Brand Logo">
+      <model-viewer class="sec1-car-mobile"
+                    src="${car.model}"
+                    camera-orbit="0deg 0deg"
+                    bounds="tight"
+                    camera-controls
+                    interaction-prompt="none"
+                    disable-tap
+                    disable-zoom>
+      </model-viewer>
+    </div>
+  `;
+}
+
+function updateContentMobile() {
+  const car = cars[currentIndexMobile];
+  
+  carLogo.src = car.modelLogo;
+  carTagline.textContent = car.tagline;
+  
+  renderSliderMobile();
+}
+
+document.getElementById("nextBtnMobile").onclick = () => {
+  currentIndexMobile = (currentIndexMobile + 1) % cars.length;
+  updateContentMobile();
+};
+
+document.getElementById("prevBtnMobile").onclick = () => {
+  currentIndexMobile = (currentIndexMobile - 1 + cars.length) % cars.length;
+  updateContentMobile();
+};
+
+// Initialize mobile slider
+renderSliderMobile();
+const initialCarMobile = cars[currentIndexMobile];
+carLogo.src = initialCarMobile.modelLogo;
+carTagline.textContent = initialCarMobile.tagline;
 
 // section 2
 
@@ -364,6 +442,166 @@ gsap.from('.sec2-word', {
 });
 
 // section 2
+
+
+const lineupCars = [
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  },
+  {
+    brandLogo: "imgs/koenigsegg-logo.png",
+    carLogo: "imgs/regera-logo.png",
+    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb",
+    specs: {
+      power: { value: "1.500", unit: "hp", label: "Total Output" },
+      battery: { value: "800", unit: "v", label: "Battery" },
+      speed: { value: "410+", unit: "km/h", label: "Top Speed" }
+    }
+  }
+];
+
+const lineupCarouselWrapper = document.getElementById("lineupCarouselWrapper");
+let currentLineupIndex = 0;
+
+function renderLineupCard() {
+  const car = lineupCars[currentLineupIndex];
+  
+  lineupCarouselWrapper.innerHTML = `
+    <div class="lineup-card-mobile">
+      <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+      <img class="brand-watermark" src="${car.brandLogo}">
+      <model-viewer 
+        src="${car.model}" 
+        camera-orbit="-90deg 90deg 0.8m" 
+        bounds="tight" 
+        camera-orbit="90deg 90deg 0.8m" 
+        scale="20 20 20" 
+        shadow-intensity="1" 
+        shadow-softness="0.8">
+      </model-viewer>
+      <img class="card-car-logo" src="${car.carLogo}">
+      <div class="card-specs">
+        <div class="specs">
+          <div class="spec">
+            <h6>${car.specs.power.value}</h6>
+            <p>${car.specs.power.unit}</p>
+          </div>
+          <p>${car.specs.power.label}</p>
+        </div>
+        <div class="line"></div>
+        <div class="specs">
+          <div class="spec">
+            <h6>${car.specs.battery.value}</h6>
+            <p>${car.specs.battery.unit}</p>
+          </div>
+          <p>${car.specs.battery.label}</p>
+        </div>
+        <div class="line"></div>
+        <div class="specs">
+          <div class="spec">
+            <h6>${car.specs.speed.value}</h6>
+            <p>${car.specs.speed.unit}</p>
+          </div>
+          <p>${car.specs.speed.label}</p>
+        </div>
+      </div>
+      <button>
+        <span>VIEW DETAILS</span>
+        <img class="horizontal-flip" src="icons/button-arrow.svg">
+      </button>
+    </div>
+  `;
+}
+
+document.getElementById("lineupNextBtn").onclick = () => {
+  currentLineupIndex = (currentLineupIndex + 1) % lineupCars.length;
+  renderLineupCard();
+};
+
+document.getElementById("lineupPrevBtn").onclick = () => {
+  currentLineupIndex = (currentLineupIndex - 1 + lineupCars.length) % lineupCars.length;
+  renderLineupCard();
+};
+
+// Initialize lineup carousel
+renderLineupCard();
 
 // section 6
 

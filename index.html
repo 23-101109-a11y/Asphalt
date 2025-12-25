@@ -40,14 +40,16 @@
         <div class="bg-img"></div>
         <div class="bg-img2"></div>
         <section class="main-hero">
-            <div class="main-hero-top">
+            <h6 class="display-block">The 2015 Koenigsegg Regera delivers instant electric torque and seamless hybrid power, redefining performance with its revolutionary Direct Drive system.</h6>
+            <div class="main-hero-top display-none">
                 <h6>The 2015 Koenigsegg Regera delivers instant electric torque and seamless hybrid power, redefining performance with its revolutionary Direct Drive system.</h6>
                 <button>
                     <img src="icons/button-arrow.svg" alt="Arrow pointing left">
                     <span>EXPLORE MODEL</span>
                 </button>
             </div>
-            <model-viewer id="mainHeroCar" class="hero-model" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="20 20 20" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m" camera-controls interaction-prompt="none" disable-tap disable-zoom></model-viewer>
+            <model-viewer id="mainHeroCar" class="hero-model display-none" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="20 20 20" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m" camera-controls interaction-prompt="none" disable-tap disable-zoom></model-viewer>
+            <model-viewer id="mainHeroCarMob" class="hero-model display-block" src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="90deg 90deg 0.8m" field-of-view="60deg" bounds="tight" scale="8 8 8" min-camera-orbit="auto auto 0.3m" max-camera-orbit="auto auto 5m" camera-controls interaction-prompt="none" disable-tap disable-zoom></model-viewer>
             <div class="car-shadow"></div>
             <img class="main-hero-brand-bg" src="imgs/koenigsegg-logo.png" alt="Koenigsegg logo">
             <div class="hero-color-changer">
@@ -58,11 +60,15 @@
                     <div class="color-changer-colors color-changer-red"></div>
                 </div>
             </div>
+            <button class="display-block">
+                    <img src="icons/button-arrow.svg" alt="Arrow pointing left">
+                    <span>EXPLORE MODEL</span>
+                </button>
         </section>
         <section class="sec1">
             <h4 class="sec-title">ASPHALT ICONS</h4>
             <div class="sec1-cont">
-                <div class="slider">
+                <div class="slider slider-desktop">
                     <button id="prevBtn">
                         <img src="icons/button-arrow.svg">
                     </button>
@@ -70,6 +76,15 @@
                     <button id="nextBtn">
                         <img class="horizontal-flip" src="icons/button-arrow.svg">
                     </button>
+                </div>
+                <div class="slider-mobile">
+                    <button id="prevBtnMobile">
+                            <img src="icons/button-arrow.svg">
+                        </button>
+                    <div class="slider-mobile-track" id="sliderTrackMobile"></div>
+                    <button id="nextBtnMobile">
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
                 </div>
             </div>
             <div class="sec1-content">
@@ -87,7 +102,7 @@
         <section class="lineup-sec">
             <h4 class="sec-title">THE ASPHALT LINEUP</h4>
             <h5>Explore nine high-performance machines from the world’s most elite manufacturers. Every model is precision-crafted for speed, control, and pure driving emotion.</h5>
-            <div class="lineup-cont">
+            <div class="lineup-cont lineup-cont-desktop">
                 <div class="lineup-row">
                     <div class="lineup-card">
                         <img class="bookmark-icon" src="icons/bookmark-icon.svg">
@@ -410,6 +425,339 @@
                     </div>
                 </div>
             </div>
+            <div class="lineup-cont-mobile">
+                <button class="lineup-nav-btn" id="lineupPrevBtn">
+                    <img src="icons/button-arrow.svg">
+                </button>
+                <div class="lineup-carousel-wrapper" id="lineupCarouselWrapper">
+                </div>
+                <button class="lineup-nav-btn" id="lineupNextBtn">
+                    <img class="horizontal-flip" src="icons/button-arrow.svg">
+                </button>
+            </div>
+            <!-- <div class="lineup-cont">
+                <div class="lineup-row">
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                </div>
+                <div class="lineup-row">
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                </div>
+                <div class="lineup-row">
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                    <div class="lineup-card">
+                        <img class="bookmark-icon" src="icons/bookmark-icon.svg">
+                        <img class="brand-watermark" src="imgs/koenigsegg-logo.png">
+                        <model-viewer src="3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb" camera-orbit="-90deg 90deg 0.8m" bounds="tight" camera-orbit="90deg 90deg 0.8m" scale="20 20 20" shadow-intensity="1" shadow-softness="0.8"></model-viewer>
+                        <img class="card-car-logo" src="imgs/regera-logo.png">
+                        <div class="card-specs">
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>1.500</h6>
+                                    <p>hp</p>
+                                </div>
+                                <p>Total Output</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>800</h6>
+                                    <p>v</p>
+                                </div>
+                                <p>Battery</p>
+                            </div>
+                            <div class="line"></div>
+                            <div class="specs">
+                                <div class="spec">
+                                    <h6>410+</h6>
+                                    <p>km/h</p>
+                                </div>
+                                <p>Top Speed</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span>VIEW DETAILS</span>
+                            <img class="horizontal-flip" src="icons/button-arrow.svg">
+                        </button>
+                    </div>
+                </div>
+            </div> -->
         </section>
         <section class="sec4">
             <h4 class="sec-title">PERFORMANCE ENGINEERING</h4>
@@ -421,12 +769,12 @@
                     <span class="sec4-text">Optimized for downforce and stability, every curve and vent is sculpted to cut through the air with surgical efficiency.</span>
                 </div>
             </div>
-            <div class="sec4-row">
+            <div class="row-reverse">
+                <video src="vids/aero.mp4"></video>
                 <div class="sec4-column">
                     <span class="sec4-title">Aerodynamics</span>
                     <span class="sec4-text">Optimized for downforce and stability, every curve and vent is sculpted to cut through the air with surgical efficiency.</span>
                 </div>
-                <video src="vids/aero.mp4"></video>
             </div>
             <div class="sec4-row">
                 <video src="vids/aero.mp4"></video>
