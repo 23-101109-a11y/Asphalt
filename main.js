@@ -176,7 +176,7 @@ enterTimeline.from("#heroCarMob", {
 
 // main hero (color changer)
 
-  function hexToRGBA(hex, alpha = 1) {
+function hexToRGBA(hex, alpha = 1) {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
   const g = parseInt(hex.slice(3, 5), 16) / 255;
   const b = parseInt(hex.slice(5, 7), 16) / 255;
@@ -294,6 +294,7 @@ function renderSlider() {
                     camera-orbit="0deg 90deg"
                     bounds="tight"
                     camera-controls
+                    field-of-view="21.79deg"
                     interaction-prompt="none"
                     disable-tap
                     disable-zoom>

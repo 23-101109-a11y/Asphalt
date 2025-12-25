@@ -84,6 +84,11 @@ button span {
 }
 
 @font-face {
+    font-family: "termina-med";
+    src: url(fonts/termina/TerminaTest-Medium.otf);
+}
+
+@font-face {
     font-family: "termina-semi";
     src: url(fonts/termina/TerminaTest-Demi.otf);
 }
@@ -95,6 +100,10 @@ button span {
 
 h1 {
     font-size: 128px;
+}
+
+h2 {
+    font-size: 60px;
 }
 
 h3 {
@@ -131,6 +140,7 @@ p {
     justify-content: center;
     color: var(--white);
     text-align: center;
+    text-transform: uppercase;
 }
 
 /* text styles */
@@ -880,7 +890,294 @@ footer span {
 
 /* footer */
 
-
-
-
 /* home page */
+
+/* product page */
+
+/* hero */
+
+.product-hero {
+    background-image: url(imgs/car1-hero-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.breadcrumbs {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+}
+
+.breadcrumbs-line {
+    height: 20px;
+    width: 1px;
+    background-color: var(--white);
+}
+
+.breadcrumbs span {
+    font-size: 16px;
+    font-family: "termina-semi";
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.breadcrumbs-focused {
+    opacity: 0.5;
+}
+
+.product-car-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.product-car-logo img {
+    max-width: 350px;
+}
+
+.product-car-logo span {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "termina-semi";
+    color: var(--white);
+    max-width: 575px;
+    text-transform: uppercase;
+}
+
+/* hero */
+
+
+/* sec1 */
+
+.product-sec1 {
+    display: flex;
+    padding: 100px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: var(--white);
+}
+
+.prod-sec1-col {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.prod-sec1-row {
+    display: flex;
+    align-items: flex-end;
+}
+
+.prod-sec1-col h2 {
+    font-family: "panchang-bold";
+    font-weight: 700;
+}
+
+.prod-sec1-col span {
+    font-size: 24px;
+    font-family: "termina-regular";
+    font-weight: 500;
+}
+
+/* sec1 */
+
+/* sec2 */
+
+.prod-car-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 100px;
+}
+
+.prod-car-desc h5 {
+    font-family: "termina-regular";
+    color: var(--white);
+    font-weight: 400;
+    text-align: center;
+}
+
+/* sec2 */
+
+/* sec3 */
+
+.prod-sec3 {
+    background-image: url(imgs/ar-car1-bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
+    height: 60vh;
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.prod-sec3 h4 {
+    color: var(--white);
+    font-family: "panchang-bold";
+    font-weight: 700;
+}
+
+.prod-sec3 h5 {
+    max-width: 650px;
+    font-family: "termina-regular";
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* sec3 */
+
+
+/* sec4 */
+
+.prod-sec4 {
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.prod-sec4 h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    text-align: center;
+    max-width: 750px;
+}
+
+.prod-sec4 img {
+    width: 100%;
+}
+
+/* sec4 */
+
+
+/* sec5 */
+
+.prod-sec5 {
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.prod-sec5-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+}
+
+.prod-sec5-content {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prod-sec5-content h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    text-align: left;
+    max-width: 480px;
+}
+
+.prod-sec5-content li {
+    color: var(--white);
+    font-family: "termina-semi";
+    text-align: left;
+    max-width: 480px;
+}
+
+.prod-sec5-point {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prod-sec5-content h6 {
+    color: var(--white);
+    font-family: "termina-regular";
+    text-align: left;
+    max-width: 480px;
+}
+
+.prod-sec5-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prod-sec5-img-row {
+    display: flex;
+    gap: 12px;
+}
+
+.prod-sec5-imgs img {
+    width: 100%;
+}
+
+/* sec5 */
+
+
+/* sec6 */
+
+.prod-sec6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.prod-sec6 h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    text-align: center;
+    max-width: 750px;
+}
+
+/* sec6 */
+
+
+/* sec7 */
+
+.prod-sec7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+
+.prod-sec7 h5 {
+    color: var(--white);
+    font-family: "termina-regular";
+    text-align: center;
+    max-width: 750px;
+}
+
+/* product page */
+
