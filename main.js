@@ -110,6 +110,70 @@ entranceTimeline.from("#heroCar", {
 
 // landing screen car model
 
+// landing screen car model
+const heroCarMobModel = document.querySelector('#heroCarMob');
+
+heroCarMobModel.addEventListener('load', () => {
+  const PAINT = heroCarMobModel.model.getMaterialByName('PAINT');
+  if (PAINT) {
+    PAINT.pbrMetallicRoughness.setBaseColorFactor([0.02, 0.02, 0.02, 1]); 
+  }
+
+  const Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material = heroCarMobModel.model.getMaterialByName('Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material');
+  if  (Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material) {
+    Koenigsegg_RegeraRewardRecycled_2016BadgeA_Material.pbrMetallicRoughness.setBaseColorFactor([0.05, 0.05, 0.05, 1]); 
+  }
+
+
+  heroCarMobModel.dismissPoster();
+
+});
+
+
+const interactiveMovement = () => {
+    const container = heroCarMobModel; 
+    const box = heroCarMobModel;
+    const movementRange = 15;
+
+    const setBoxX = gsap.quickTo(box, "x", { duration: 0.5, ease: "power2.out" });
+    const setBoxY = gsap.quickTo(box, "y", { duration: 0.5, ease: "power2.out" });
+
+    function handleMouseMove(e) {
+        const bounds = container.getBoundingClientRect();
+        const mouseX = e.clientX - bounds.left;
+        const mouseY = e.clientY - bounds.top;
+
+        const newX = gsap.utils.mapRange(0, bounds.width, -movementRange, movementRange, mouseX);
+        const newY = gsap.utils.mapRange(0, bounds.height, -movementRange, movementRange, mouseY);
+
+        setBoxX(newX);
+        setBoxY(newY);
+    }
+
+    function handleMouseLeave() {
+        setBoxX(0);
+        setBoxY(0);
+    }
+
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', handleMouseLeave);
+};
+
+const enterTimeline = gsap.timeline({
+    onComplete: interactiveMovement 
+});
+
+enterTimeline.from("#heroCarMob", {
+  x: "-120%",
+  opacity: 0,
+  filter: "blur(10px)",
+  duration: 1.8,
+  delay: 1,
+  ease: "power3.out"
+});
+
+// landing screen car model MOB
+
 // main hero (color changer)
 
   function hexToRGBA(hex, alpha = 1) {
@@ -137,7 +201,7 @@ mainHeroCar.addEventListener('load', () => {
       if (!PAINT) return;
 
       if (btn.classList.contains('color-changer-purple')) {
-        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#050107ff'));
+        PAINT.pbrMetallicRoughness.setBaseColorFactor(hexToRGBA('#040106ff'));
       }
 
       if (btn.classList.contains('color-changer-blue')) {
