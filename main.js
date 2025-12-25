@@ -1,10 +1,10 @@
 // // preloader
 
-// window.addEventListener("load", () => {
-//   setTimeout(() => {
-//     document.getElementById("preloader").style.display = "none";
-//   }, 500);
-// });
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").style.display = "none";
+  }, 500);
+});
 
 // // preloader
 
@@ -259,18 +259,18 @@ const cars = [
     model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
   },
   {
-    name: "Jesko",
+    name: "911 GT2 RS",
     tagline: "Track-focused extreme performance.",
-    brandLogo: "imgs/koenigsegg-logo.png",
-    modelLogo: "imgs/regera-logo.png",
-    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
+    brandLogo: "imgs/porsche-logo.svg",
+    modelLogo: "imgs/gt3-rs-logo.svg",
+    model: "3D-Models/Porsche/Porsche Car 1/porsche_911_gt2_rs_with_angle_eyes.glb"
   },
   {
     name: "Gemera",
     tagline: "Four-seat megacar innovation.",
     brandLogo: "imgs/koenigsegg-logo.png",
-    modelLogo: "imgs/regera-logo.png",
-    model: "3D-Models/Koenigsegg/Regera/2015_koenigsegg_regera.glb"
+    modelLogo: "imgs/agera-r-logo.svg",
+    model: "3D-Models/Koenigsegg/Agera R/2012_koenigsegg_agera_r.glb"
   }
 ];
 
