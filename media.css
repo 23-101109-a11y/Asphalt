@@ -857,3 +857,10 @@
         text-align: end;
     }
 }
+
+@media screen and (min-width: 1390px) {
+    .sec1-car {
+        width: 400px;
+        height: 400px;
+    }
+}
